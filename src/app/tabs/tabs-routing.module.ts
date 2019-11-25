@@ -1,53 +1,67 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { TabsPage } from './tabs.page';
+import { NgModule } from "@angular/core";
+import { RouterModule, Routes } from "@angular/router";
+import { TabsPage } from "./tabs.page";
 
 const routes: Routes = [
   {
-    path: 'tabs',
+    path: "tabs",
     component: TabsPage,
     children: [
       {
-        path: 'tab1',
+        path: "home",
         children: [
           {
-            path: '',
+            path: "",
             loadChildren: () =>
-              import('../tab1/tab1.module').then(m => m.Tab1PageModule)
+              import("../home/home.module").then(m => m.HomePageModule)
           }
         ]
       },
       {
-        path: 'tab2',
+        path: "collections",
         children: [
           {
-            path: '',
+            path: "",
             loadChildren: () =>
-              import('../tab2/tab2.module').then(m => m.Tab2PageModule)
+              import("../collections/collections.module").then(
+                m => m.CollectionsPageModule
+              )
           }
         ]
       },
       {
-        path: 'tab3',
+        path: "notifications",
         children: [
           {
-            path: '',
+            path: "",
             loadChildren: () =>
-              import('../tab3/tab3.module').then(m => m.Tab3PageModule)
+              import("../notifications/notifications.module").then(
+                m => m.NotificationsPageModule
+              )
           }
         ]
       },
       {
-        path: '',
-        redirectTo: '/tabs/tab1',
-        pathMatch: 'full'
+        path: "profile",
+        children: [
+          {
+            path: "",
+            loadChildren: () =>
+              import("../profile/profile.module").then(m => m.ProfilePageModule)
+          }
+        ]
+      },
+      {
+        path: "",
+        redirectTo: "/tabs/home",
+        pathMatch: "full"
       }
     ]
   },
   {
-    path: '',
-    redirectTo: '/tabs/tab1',
-    pathMatch: 'full'
+    path: "",
+    redirectTo: "/tabs/home",
+    pathMatch: "full"
   }
 ];
 

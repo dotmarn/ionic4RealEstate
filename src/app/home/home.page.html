@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-searchbar
+      placeholder="Search suburb, postcode, state"
+      (ionFocus)="onSearchInFocus()"
+    ></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <img src="assets/images/home-cover.jpeg" alt="" />
+
+  <ion-item>
+    <ion-label>
+      {{ isSearchHistory ? 'Search History' : 'Saved Searches'}}
+    </ion-label>
+
+    <ion-toggle slot="end" [(ngModel)]="isSearchHistory"> </ion-toggle>
+  </ion-item>
+
+  <search-history *ngIf="isSearchHistory"></search-history>
+  <saved-searches *ngIf="!isSearchHistory"></saved-searches>
+</ion-content>

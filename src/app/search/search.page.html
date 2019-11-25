@@ -1,0 +1,95 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-searchbar
+      id="searchInput"
+      [(ngModel)]="searchValue"
+      placeholder="Search suburb, postcode, state"
+      showCancelButton="always"
+      (ionCancel)="goBack()"
+      (ionClear)="clearSearchInput()"
+    ></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-row>
+    <ion-button
+      *ngFor="let location of searchLocations"
+      (click)="removeLocation(location)"
+    >
+      {{ location.name }}
+      <ion-icon slot="end" name="close-circle"></ion-icon>
+    </ion-button>
+  </ion-row>
+
+  <ion-item>
+    <ion-label>
+      Include surrounding suburbs
+    </ion-label>
+
+    <ion-toggle slot="end" [(ngModel)]="includeSurroundingSuburbs">
+    </ion-toggle>
+  </ion-item>
+
+  <ion-list>
+    <ion-list-header>
+      <ion-label>Suggestions</ion-label>
+    </ion-list-header>
+
+    <ion-item *ngFor="let location of suggestedLocations">
+      <ion-label>
+        {{ location.name }}
+      </ion-label>
+
+      <ion-button slot="end" fill="clear" (click)="addRemoveLocation(location)">
+        <ion-icon
+          *ngIf="!location.isSearchFilter"
+          slot="icon-only"
+          name="add-circle-outline"
+        ></ion-icon>
+
+        <ion-icon
+          *ngIf="location.isSearchFilter"
+          slot="icon-only"
+          name="remove-circle-outline"
+        ></ion-icon>
+      </ion-button>
+    </ion-item>
+  </ion-list>
+
+  <ion-list *ngIf="recentLocations.length > 0">
+    <ion-list-header>
+      <ion-label>Recent locations</ion-label>
+    </ion-list-header>
+
+    <ion-item *ngFor="let location of recentLocations">
+      <ion-label>
+        {{ location.name }}
+      </ion-label>
+
+      <ion-button slot="end" fill="clear" (click)="addRemoveLocation(location)">
+        <ion-icon
+          *ngIf="!location.isSearchFilter"
+          slot="icon-only"
+          name="add-circle-outline"
+        ></ion-icon>
+
+        <ion-icon
+          *ngIf="location.isSearchFilter"
+          slot="icon-only"
+          name="remove-circle-outline"
+        ></ion-icon>
+      </ion-button>
+    </ion-item>
+  </ion-list>
+</ion-content>
+
+<ion-footer *ngIf="searchLocations.length > 0">
+  <ion-row>
+    <ion-col class="ion-text-center">
+      <ion-button expand="full" (click)="done()">
+        Done
+      </ion-button>
+    </ion-col>
+  </ion-row>
+</ion-footer>

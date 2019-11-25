@@ -1,0 +1,18 @@
+<div>
+  <ion-row *ngIf="searchService.previousSearches.length == 0">
+    <ion-col class="ion-text-center">
+      <h3>Recent searches</h3>
+      <p>
+        Your recent searches will appear here, so you can easily run your
+        favorite searches.
+      </p>
+    </ion-col>
+  </ion-row>
+
+  <div *ngIf="searchService.previousSearches.length > 0">
+    <search-details
+      *ngFor="let searchItem of searchService.previousSearches"
+      [searchItem]="searchItem"
+    ></search-details>
+  </div>
+</div>

@@ -1,0 +1,33 @@
+<ion-item>
+  <ion-button slot="start" fill="clear">
+    <ion-icon slot="icon-only" name="search"></ion-icon>
+  </ion-button>
+
+  <div>
+    <ion-row>
+      <p *ngFor="let location of searchItem.locations; let i = index">
+        {{ location.name }}
+        <span *ngIf="i != searchItem.locations.length - 1"> & &nbsp;</span>
+      </p>
+    </ion-row>
+
+    <ion-row>
+      <p>
+        {{ searchItem.isBuy ? "Buy" : "Rent" }} | ${{ searchItem.lowPrice }}k to
+        ${{ searchItem.highPrice }}k |
+        <span>
+          <ion-icon slot="icon-only" name="bed"></ion-icon>
+        </span>
+        {{ searchItem.bedroomsCount }}+ |
+        <span>
+          <ion-icon slot="icon-only" name="water"></ion-icon>
+        </span>
+        {{ searchItem.bathroomsCount }}+ |
+        <span>
+          <ion-icon slot="icon-only" name="car"></ion-icon>
+        </span>
+        {{ searchItem.carSpacesCount }}+ |
+      </p>
+    </ion-row>
+  </div>
+</ion-item>
