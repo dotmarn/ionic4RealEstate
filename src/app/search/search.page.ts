@@ -1,12 +1,11 @@
 import { Component, OnInit } from "@angular/core";
 
-import { NavController } from "@ionic/angular";
-
 import { SuburbService } from "src/services/suburbService";
+import { SearchService } from "src/services/SearchService";
+import { ModalService } from "src/services/ModalService";
 
 import { Suburb } from "src/data/Suburb";
 import { Randomizer } from "src/data/Helpers/Randomizer";
-import { SearchService } from "src/services/SearchService";
 
 @Component({
   selector: "app-search",
@@ -25,9 +24,9 @@ export class SearchPage implements OnInit {
   searchLocations: Suburb[] = [];
 
   constructor(
+    private modalService: ModalService,
     private searchService: SearchService,
-    private suburbService: SuburbService,
-    private navCtrl: NavController
+    private suburbService: SuburbService
   ) {}
 
   ngOnInit() {
@@ -116,9 +115,11 @@ export class SearchPage implements OnInit {
     }
   }
 
-  goBack() {
-    this.navCtrl.back();
+  close() {
+    this.modalService.dismiss(false);
   }
 
-  done() {}
+  done() {
+    this.modalService.dismiss(true);
+  }
 }

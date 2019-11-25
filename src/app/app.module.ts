@@ -1,6 +1,7 @@
 import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
 import { RouteReuseStrategy } from "@angular/router";
+import { FormsModule } from "@angular/forms";
 
 import { IonicModule, IonicRouteStrategy } from "@ionic/angular";
 import { SplashScreen } from "@ionic-native/splash-screen/ngx";
@@ -12,10 +13,17 @@ import { AppComponent } from "./app.component";
 import { SearchService } from "src/services/SearchService";
 import { SuburbService } from "src/services/suburbService";
 
+import { SearchPage } from "./search/search.page";
+
 @NgModule({
-  declarations: [AppComponent],
-  entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
+  declarations: [AppComponent, SearchPage],
+  entryComponents: [SearchPage],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    IonicModule.forRoot(),
+    AppRoutingModule
+  ],
   providers: [
     StatusBar,
     SplashScreen,
