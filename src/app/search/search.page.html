@@ -14,7 +14,7 @@
 <ion-content>
   <ion-row>
     <ion-button
-      *ngFor="let location of searchLocations"
+      *ngFor="let location of searchService.currentSearch.locations"
       (click)="removeLocation(location)"
     >
       {{ location.name }}
@@ -84,7 +84,7 @@
   </ion-list>
 </ion-content>
 
-<ion-footer *ngIf="searchLocations.length > 0">
+<ion-footer *ngIf="searchService.currentSearch.locations.length > 0">
   <ion-row>
     <ion-col class="ion-text-center">
       <ion-button expand="full" (click)="done()">

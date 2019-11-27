@@ -35,4 +35,16 @@ export class SuburbService {
       Randomizer.random(0, this.innerSuburbs.length - 1)
     ];
   }
+
+  search(searchValue: string): Suburb[] {
+    var foundSuburbs = [];
+
+    this.innerSuburbs.forEach(suburb => {
+      if (suburb.name.toLowerCase().indexOf(searchValue.toLowerCase()) > -1) {
+        foundSuburbs.push(suburb);
+      }
+    });
+
+    return foundSuburbs;
+  }
 }

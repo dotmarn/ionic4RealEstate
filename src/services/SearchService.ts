@@ -1,13 +1,15 @@
 import { Injectable } from "@angular/core";
+
+import { SuburbService } from "./suburbService";
+
 import { SearchItem } from "src/data/SearchItem";
 import { Randomizer } from "src/data/Helpers/Randomizer";
-import { SuburbService } from "./suburbService";
-import { Suburb } from "src/data/Suburb";
 
 @Injectable({
   providedIn: "root"
 })
 export class SearchService {
+  currentSearch: SearchItem;
   previousSearches: SearchItem[] = [];
 
   constructor(private suburbService: SuburbService) {
@@ -37,19 +39,5 @@ export class SearchService {
 
       this.previousSearches.push(searchItem);
     }
-
-    console.log(this.previousSearches);
-  }
-
-  search(searchValue: string): Suburb[] {
-    var foundSuburbs = [];
-
-    this.suburbService.innerSuburbs.forEach(suburb => {
-      if (suburb.name.toLowerCase().indexOf(searchValue.toLowerCase()) > -1) {
-        foundSuburbs.push(suburb);
-      }
-    });
-
-    return foundSuburbs;
   }
 }

@@ -6,6 +6,7 @@ import { ModalService } from "src/services/ModalService";
 
 import { Suburb } from "src/data/Suburb";
 import { Randomizer } from "src/data/Helpers/Randomizer";
+import { SearchItem } from "src/data/SearchItem";
 
 @Component({
   selector: "app-search",
@@ -21,7 +22,6 @@ export class SearchPage implements OnInit {
 
   suggestedLocations: Suburb[] = [];
   recentLocations: Suburb[] = [];
-  searchLocations: Suburb[] = [];
 
   constructor(
     private modalService: ModalService,
@@ -34,6 +34,8 @@ export class SearchPage implements OnInit {
     this.initialiseSuggestedLocations();
 
     this.listenForSearchInput(500);
+
+    this.searchService.currentSearch = new SearchItem();
   }
 
   listenForSearchInput(timeoutTime: number): any {
@@ -54,7 +56,7 @@ export class SearchPage implements OnInit {
             this.clearSuggestedLocations();
             this.isSearching = true;
 
-            var foundSuburbs = this.searchService.search(this.searchValue);
+            var foundSuburbs = this.suburbService.search(this.searchValue);
             this.suggestedLocations = this.suggestedLocations.concat(
               foundSuburbs
             );
@@ -100,26 +102,28 @@ export class SearchPage implements OnInit {
   }
 
   addLocation(location: Suburb) {
-    this.searchLocations.push(location);
+    this.searchService.currentSearch.locations.push(location);
     location.isSearchFilter = true;
   }
 
   removeLocation(location: Suburb) {
-    var index = this.searchLocations.findIndex(e => {
+    var index = this.searchService.currentSearch.locations.findIndex(e => {
       return e.id === location.id;
     });
 
     if (index > -1) {
-      this.searchLocations.splice(index, 1);
+      this.searchService.currentSearch.locations.splice(index, 1);
       location.isSearchFilter = false;
     }
   }
 
   close() {
     this.modalService.dismiss(false);
+    this.searchService.currentSearch = null;
   }
 
   done() {
     this.modalService.dismiss(true);
+    console.log(this.searchService.currentSearch);
   }
 }
