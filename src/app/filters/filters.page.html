@@ -1,9 +1,232 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>filters</ion-title>
+    <ion-searchbar
+      placeholder="{{ locationsText }}"
+      showCancelButton="always"
+      (ionCancel)="close()"
+    ></ion-searchbar>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-item>
+    <ion-button slot="end" size="small" (click)="resetFilters()">
+      Reset Filter
+    </ion-button>
+  </ion-item>
 
+  <ion-segment (ionChange)="buyRentChanged($event)">
+    <ion-segment-button value="buy" checked>
+      <ion-label>Buy</ion-label>
+    </ion-segment-button>
+
+    <ion-segment-button value="rent">
+      <ion-label>Rent</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+  <br />
+
+  <div class="scroll-container">
+    <ion-label>
+      Property type
+    </ion-label>
+
+    <div class="scroll" scrollX="true">
+      <ion-col
+        *ngFor="let propertyType of propertyTypes"
+        class="scroll-item ion-text-center"
+      >
+        <ion-button
+          [class.selected]="propertyType.isSelected"
+          (click)="selectPropertyType(propertyType)"
+        >
+          <ion-icon slot="icon-only" name="home"></ion-icon>
+        </ion-button>
+
+        <p>{{ propertyType.name }}</p>
+      </ion-col>
+    </div>
+  </div>
+
+  <div>
+    <ion-label>
+      Price range
+    </ion-label>
+
+    <ion-row>
+      <ion-col class="ion-text-center">
+        <p>{{ priceRangeText }}</p>
+
+        <ion-item lines="none">
+          <ion-range
+            [(ngModel)]="priceRange"
+            min="0"
+            max="100"
+            step="2"
+            snaps="true"
+            ticks="false"
+            dualKnobs="true"
+            (ionChange)="priceRangeChanged($event)"
+          ></ion-range>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </div>
+
+  <div>
+    <ion-label>
+      <ion-icon name="bed"></ion-icon>
+      Bedrooms
+    </ion-label>
+
+    <ion-segment [(ngModel)]="bedroomsCount">
+      <ion-segment-button value="-1" checked>
+        <ion-label>All</ion-label>
+      </ion-segment-button>
+
+      <ion-segment-button value="1">
+        <ion-label>1+</ion-label>
+      </ion-segment-button>
+
+      <ion-segment-button value="2">
+        <ion-label>2+</ion-label>
+      </ion-segment-button>
+
+      <ion-segment-button value="3">
+        <ion-label>3+</ion-label>
+      </ion-segment-button>
+
+      <ion-segment-button value="4">
+        <ion-label>4+</ion-label>
+      </ion-segment-button>
+
+      <ion-segment-button value="5">
+        <ion-label>5+</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+
+  <div>
+    <ion-label>
+      <ion-icon name="water"></ion-icon>
+      Bathrooms
+    </ion-label>
+
+    <ion-segment [(ngModel)]="bathroomsCount">
+      <ion-segment-button value="-1" checked>
+        <ion-label>All</ion-label>
+      </ion-segment-button>
+
+      <ion-segment-button value="1">
+        <ion-label>1+</ion-label>
+      </ion-segment-button>
+
+      <ion-segment-button value="2">
+        <ion-label>2+</ion-label>
+      </ion-segment-button>
+
+      <ion-segment-button value="3">
+        <ion-label>3+</ion-label>
+      </ion-segment-button>
+
+      <ion-segment-button value="4">
+        <ion-label>4+</ion-label>
+      </ion-segment-button>
+
+      <ion-segment-button value="5">
+        <ion-label>5+</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+
+  <div>
+    <ion-label>
+      <ion-icon name="car"></ion-icon>
+      Car spaces
+    </ion-label>
+
+    <ion-segment [(ngModel)]="carSpacesCount">
+      <ion-segment-button value="-1" checked>
+        <ion-label>All</ion-label>
+      </ion-segment-button>
+
+      <ion-segment-button value="1">
+        <ion-label>1+</ion-label>
+      </ion-segment-button>
+
+      <ion-segment-button value="2">
+        <ion-label>2+</ion-label>
+      </ion-segment-button>
+
+      <ion-segment-button value="3">
+        <ion-label>3+</ion-label>
+      </ion-segment-button>
+
+      <ion-segment-button value="4">
+        <ion-label>4+</ion-label>
+      </ion-segment-button>
+
+      <ion-segment-button value="5">
+        <ion-label>5+</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+
+  <div *ngIf="isBuy">
+    <ion-label>
+      Land size
+    </ion-label>
+
+    <ion-row>
+      <p>
+        At least
+      </p>
+
+      <ion-input
+        [(ngModel)]="landSize"
+        type="number"
+        placeholder="0"
+      ></ion-input>
+
+      <p>m<span>&#178;</span></p>
+    </ion-row>
+  </div>
+
+  <div *ngIf="!isBuy">
+    <ion-label>
+      Property requirements
+    </ion-label>
+
+    <ion-item>
+      <ion-checkbox [(ngModel)]="isFurnished" slot="start"></ion-checkbox>
+      <p>Furnished</p>
+    </ion-item>
+
+    <ion-item>
+      <ion-checkbox [(ngModel)]="arePetsConsidered" slot="start"></ion-checkbox>
+      <p>Pets considered</p>
+    </ion-item>
+  </div>
+
+  <div>
+    <ion-label>
+      Keywords
+    </ion-label>
+
+    <ion-input
+      [(ngModel)]="keywords"
+      placeholder="e.g. Pool, garage"
+    ></ion-input>
+  </div>
 </ion-content>
+
+<ion-footer>
+  <ion-row>
+    <ion-col class="ion-text-center">
+      <ion-button expand="full" (click)="search()">
+        <ion-icon slot="icon-only" name="search"></ion-icon>
+      </ion-button>
+    </ion-col>
+  </ion-row>
+</ion-footer>

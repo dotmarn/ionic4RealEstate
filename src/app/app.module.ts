@@ -14,10 +14,11 @@ import { SearchService } from "src/services/SearchService";
 import { SuburbService } from "src/services/suburbService";
 
 import { SearchPage } from "./search/search.page";
+import { FiltersPage } from "./filters/filters.page";
 
 @NgModule({
-  declarations: [AppComponent, SearchPage],
-  entryComponents: [SearchPage],
+  declarations: [AppComponent, SearchPage, FiltersPage],
+  entryComponents: [SearchPage, FiltersPage],
   imports: [
     BrowserModule,
     FormsModule,

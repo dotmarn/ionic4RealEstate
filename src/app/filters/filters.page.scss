@@ -1,0 +1,30 @@
+.scroll-container {
+  overflow: hidden;
+  white-space: nowrap;
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
+
+  .scroll[scrollx] {
+    white-space: nowrap;
+    overflow: auto;
+
+    div.scroll-content {
+      padding: 0px;
+    }
+
+    .scroll-item {
+      display: inline-block;
+      max-width: 100px;
+
+      ion-button.selected {
+        --background: darkblue;
+      }
+
+      p {
+        word-wrap: break-word;
+      }
+    }
+  }
+}

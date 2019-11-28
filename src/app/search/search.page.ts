@@ -118,12 +118,11 @@ export class SearchPage implements OnInit {
   }
 
   close() {
-    this.modalService.dismiss(false);
-    this.searchService.currentSearch = null;
+    this.modalService.dismiss({ success: false });
+    this.searchService.currentSearch = new SearchItem();
   }
 
   done() {
-    this.modalService.dismiss(true);
-    console.log(this.searchService.currentSearch);
+    this.modalService.dismiss({ success: true });
   }
 }
