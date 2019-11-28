@@ -4,7 +4,7 @@ import { FormsModule } from "@angular/forms";
 
 import { IonicModule } from "@ionic/angular";
 
-import { SearchHistoryPageRoutingModule } from "./search-history-routing.module";
+import { SearchHistoryComponentRoutingModule } from "./search-history-routing.module";
 
 import { SearchHistoryComponent } from "./search-history.component";
 
@@ -15,7 +15,7 @@ import { SearchDetailsComponentModule } from "../search-details/search-details.m
     CommonModule,
     FormsModule,
     IonicModule,
-    SearchHistoryPageRoutingModule,
+    SearchHistoryComponentRoutingModule,
     SearchDetailsComponentModule
   ],
   declarations: [SearchHistoryComponent],

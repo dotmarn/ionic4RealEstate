@@ -4,7 +4,7 @@ import { FormsModule } from "@angular/forms";
 
 import { IonicModule } from "@ionic/angular";
 
-import { SavedSearchesPageRoutingModule } from "./saved-searches-routing.module";
+import { SavedSearchesComponentRoutingModule } from "./saved-searches-routing.module";
 
 import { SavedSearchesComponent } from "./saved-searches.component";
 
@@ -13,7 +13,7 @@ import { SavedSearchesComponent } from "./saved-searches.component";
     CommonModule,
     FormsModule,
     IonicModule,
-    SavedSearchesPageRoutingModule
+    SavedSearchesComponentRoutingModule
   ],
   declarations: [SavedSearchesComponent],
   exports: [SavedSearchesComponent]

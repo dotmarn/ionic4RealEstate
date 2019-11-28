@@ -1,12 +1,12 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 
-import { SearchHistoryComponent } from "./search-history.component";
+import { PropertyDetailsPage } from "./property-details.page";
 
 const routes: Routes = [
   {
     path: "",
-    component: SearchHistoryComponent
+    component: PropertyDetailsPage
   }
 ];
 
@@ -14,4 +14,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class SearchHistoryComponentRoutingModule {}
+export class PropertyDetailsPageRoutingModule {}

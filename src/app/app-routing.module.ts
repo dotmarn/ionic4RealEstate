@@ -45,6 +45,13 @@ const routes: Routes = [
       import("./search-results/search-results.module").then(
         m => m.SearchResultsPageModule
       )
+  },
+  {
+    path: "property-details",
+    loadChildren: () =>
+      import("./property-details/property-details.module").then(
+        m => m.PropertyDetailsPageModule
+      )
   }
 ];
 @NgModule({

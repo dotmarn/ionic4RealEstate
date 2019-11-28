@@ -1,17 +1,17 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { NgModule } from "@angular/core";
+import { Routes, RouterModule } from "@angular/router";
 
-import { SavedSearchesComponent } from './saved-searches.component';
+import { SavedSearchesComponent } from "./saved-searches.component";
 
 const routes: Routes = [
   {
-    path: '',
+    path: "",
     component: SavedSearchesComponent
   }
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule],
+  exports: [RouterModule]
 })
-export class SavedSearchesPageRoutingModule {}
+export class SavedSearchesComponentRoutingModule {}

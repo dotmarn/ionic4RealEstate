@@ -1,15 +1,15 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { IonicModule } from '@ionic/angular';
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
+import { IonicModule } from "@ionic/angular";
 
-import { SearchResultsMapComponent } from './search-results-map.component';
+import { SearchResultsMapComponent } from "./search-results-map.component";
 
-describe('SearchResultsMapComponent', () => {
+describe("SearchResultsMapComponent", () => {
   let component: SearchResultsMapComponent;
   let fixture: ComponentFixture<SearchResultsMapComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SearchResultsMapComponent ],
+      declarations: [SearchResultsMapComponent],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
@@ -18,7 +18,7 @@ describe('SearchResultsMapComponent', () => {
     fixture.detectChanges();
   }));
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });
