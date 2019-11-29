@@ -19,10 +19,14 @@ export class PropertyService {
   loadProperties() {
     var promises = [this.getRealtors(), this.getAgents(), this.getProperties()];
 
-    Promise.all(promises).then(values => {
-      var realtors = <Realtor[]>values[0];
-      var agents = <Agent[]>values[1];
-      var properties = <Property[]>values[2];
+    Promise.all(promises).then((values: any) => {
+      var realtors = <Realtor[]>values[0].realtors;
+      var agents = <Agent[]>values[1].agents;
+      var properties = <Property[]>values[2].properties;
+
+      console.log(realtors);
+      console.log(agents);
+      console.log(properties);
 
       // assign realtors to agents
       agents.forEach(agent => {
@@ -76,7 +80,7 @@ export class PropertyService {
               properties.push(property);
             });
 
-            resolve();
+            resolve({ properties: properties });
           },
           error => {
             console.error(error);
@@ -113,7 +117,7 @@ export class PropertyService {
               realtors.push(realtor);
             });
 
-            resolve();
+            resolve({ realtors: realtors });
           },
           error => {
             console.error(error);
@@ -148,7 +152,7 @@ export class PropertyService {
               agents.push(agent);
             });
 
-            resolve();
+            resolve({ agents: agents });
           },
           error => {
             console.error(error);
