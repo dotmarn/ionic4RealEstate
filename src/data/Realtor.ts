@@ -1,3 +1,5 @@
+import { Suburb } from "./Suburb";
+
 export class Realtor {
   constructor() {}
 

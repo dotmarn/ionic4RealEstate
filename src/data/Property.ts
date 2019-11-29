@@ -2,9 +2,13 @@ import { Agent } from "./Agent";
 import { Suburb } from "./Suburb";
 import { PropertyType } from "./PropertyType";
 import { School } from "./School";
+import { Coordinates } from "./Coordinates";
+import { GuidGenerator } from "./Helpers/GuidGenerator";
 
 export class Property {
-  constructor() {}
+  constructor() {
+    this.id = GuidGenerator.guid();
+  }
 
   id: string;
   agent: Agent;

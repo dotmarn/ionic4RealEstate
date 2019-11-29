@@ -1,0 +1,122 @@
+[
+  {
+    "name": "Metro City",
+    "pictureUrl": "assets/images/realtors/realtor1.png",
+    "streetNo": 17,
+    "streetName": "Newborough Street"
+  },
+  {
+    "name": "Urban X",
+    "pictureUrl": "assets/images/realtors/realtor2.png",
+    "streetNo": 85,
+    "streetName": "Cookley Road"
+  },
+  {
+    "name": "Remax",
+    "pictureUrl": "assets/images/realtors/realtor3.png",
+    "streetNo": 64,
+    "streetName": "Greenfields Avenue"
+  },
+  {
+    "name": "CBRE",
+    "pictureUrl": "assets/images/realtors/realtor4.png",
+    "streetNo": 23,
+    "streetName": "Cumwell Lane"
+  },
+  {
+    "name": "JJ Property",
+    "pictureUrl": "assets/images/realtors/realtor5.png",
+    "streetNo": 4,
+    "streetName": "Old Wells Road"
+  },
+  {
+    "name": "Little Real Estate",
+    "pictureUrl": "assets/images/realtors/realtor6.png",
+    "streetNo": 98,
+    "streetName": "Victory Way"
+  },
+  {
+    "name": "LJ Hooker",
+    "pictureUrl": "assets/images/realtors/realtor7.png",
+    "streetNo": 45,
+    "streetName": "Guild Avenue"
+  },
+  {
+    "name": "North South Real Estate",
+    "pictureUrl": "assets/images/realtors/realtor8.png",
+    "streetNo": 69,
+    "streetName": "Manor Avenue"
+  },
+  {
+    "name": "Place",
+    "pictureUrl": "assets/images/realtors/realtor9.png",
+    "streetNo": 78,
+    "streetName": "Railway Street"
+  },
+  {
+    "name": "Position",
+    "pictureUrl": "assets/images/realtors/realtor10.png",
+    "streetNo": 37,
+    "streetName": "Bay View Boulevard"
+  },
+  {
+    "name": "Ray White",
+    "pictureUrl": "assets/images/realtors/realtor11.png",
+    "streetNo": 13,
+    "streetName": "Hazelnut Way"
+  },
+  {
+    "name": "Plum Property",
+    "pictureUrl": "assets/images/realtors/realtor12.png",
+    "streetNo": 20,
+    "streetName": "Rowan Lane"
+  },
+  {
+    "name": "Mark Ward Property",
+    "pictureUrl": "assets/images/realtors/realtor13.png",
+    "streetNo": 64,
+    "streetName": "Gray Boulevard"
+  },
+  {
+    "name": "Harcourts Solution",
+    "pictureUrl": "assets/images/realtors/realtor14.png",
+    "streetNo": 76,
+    "streetName": "Elmwood Way"
+  },
+  {
+    "name": "Coronis",
+    "pictureUrl": "assets/images/realtors/realtor15.png",
+    "streetNo": 94,
+    "streetName": "Palm Route"
+  },
+  {
+    "name": "McGrath",
+    "pictureUrl": "assets/images/realtors/realtor16.png",
+    "streetNo": 32,
+    "streetName": "Orchard Avenue"
+  },
+  {
+    "name": "One Agency",
+    "pictureUrl": "assets/images/realtors/realtor17.png",
+    "streetNo": 78,
+    "streetName": "Cannon Street"
+  },
+  {
+    "name": "Belle Property",
+    "pictureUrl": "assets/images/realtors/realtor18.png",
+    "streetNo": 2,
+    "streetName": "Royalty Lane"
+  },
+  {
+    "name": "Stone",
+    "pictureUrl": "assets/images/realtors/realtor19.png",
+    "streetNo": 65,
+    "streetName": "Acorn Street"
+  },
+  {
+    "name": "Torres Property",
+    "pictureUrl": "assets/images/realtors/realtor20.png",
+    "streetNo": 87,
+    "streetName": "Cottage Way"
+  }
+]

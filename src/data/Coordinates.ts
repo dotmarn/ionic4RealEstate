@@ -1,5 +1,8 @@
 export class Coordinates {
-  constructor() {}
+  constructor(lat: number, lng: number) {
+    this.lat = lat;
+    this.lng = lng;
+  }
 
   lat: number;
   lng: number;

@@ -1,8 +1,11 @@
 import { SchoolSector } from "./SchoolSector";
 import { SchoolType } from "./SchoolType";
+import { GuidGenerator } from './Helpers/GuidGenerator';
 
 export class School {
-  constructor() {}
+  constructor() {
+    this.id = GuidGenerator.guid();
+  }
 
   id: string;
   name: string;

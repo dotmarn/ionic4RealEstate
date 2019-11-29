@@ -1,7 +1,10 @@
 import { Realtor } from "./Realtor";
+import { GuidGenerator } from './Helpers/GuidGenerator';
 
 export class Agent {
-  constructor() {}
+  constructor() {
+    this.id = GuidGenerator.guid();
+  }
 
   id: string;
   name: string;
